@@ -91,7 +91,7 @@ ACR_CREDENTIALS=$(az acr credential show -n fabmedical$MCW_SUFFIX)
 ACR_USERNAME=$(jq -r -n '$input.username' --argjson input "$ACR_CREDENTIALS")
 ACR_PASSWORD=$(jq -r -n '$input.passwords[0].value' --argjson input "$ACR_CREDENTIALS")
 # AZURE_CREDENTIALS=$(az ad sp create-for-rbac --scope $MCW_AZURE_SUBSCRIPTION)
-AZURE_CREDENTIALS=$(az ad sp create-for-rbac --name "fabmedical-$MCW_SUFFIX-buildagent" --role contributor --scopes /subscriptions/$MCW_AZURE_SUBSCRIPTION/resourceGroups/fabmedical-${MCW_SUFFIX})
+AZURE_CREDENTIALS=$(az ad sp create-for-rbac --name "fabmedical-$MCW_SUFFIX-buildagent" --role contributor --scopes /subscriptions/$MCW_AZURE_SUBSCRIPTION/resourceGroups/fabmedical-${MCW_SUFFIX} --sdk-auth)
 
 GITHUB_TOKEN=$MCW_GITHUB_TOKEN
 cd ~/Fabmedical
