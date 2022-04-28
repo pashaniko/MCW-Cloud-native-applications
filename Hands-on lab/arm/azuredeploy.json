@@ -398,7 +398,7 @@
         },
         {
             "type": "Microsoft.DocumentDb/databaseAccounts",
-            "apiVersion": "2020-04-01",
+            "apiVersion": "2021-10-15",
             "name": "[variables('cosmosName')]",
             "location": "[parameters('CosmosLocation')]",
             "kind": "[variables('cosmosApi')]",
@@ -409,11 +409,6 @@
                         "id": "[concat(variables('cosmosName'), '-', parameters('CosmosLocation'))]",
                         "failoverPriority": 0,
                         "locationName": "[parameters('CosmosLocationName')]"
-                    },
-                    {
-                        "id": "[concat(variables('cosmosName'), '-', parameters('CosmosPairedLocation'))]",
-                        "failoverPriority": 1,
-                        "locationName": "[parameters('CosmosPairedLocationName')]"
                     }
                 ],
                 "enableMultipleWriteLocations": false,
